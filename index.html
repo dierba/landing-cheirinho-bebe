@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Economize até 80% em produtos para seu bebê! Promoções diárias, cupons exclusivos e ofertas verificadas.">
+    <title>Cheirinho de Bebê - Economize até 80% em Produtos para Bebê</title>
+    
+    <!-- Preload crítico -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Meta tags para redes sociais -->
+    <meta property="og:title" content="Cheirinho de Bebê - Economize até 80% em Produtos para Bebê">
+    <meta property="og:description" content="Promoções diárias, cupons exclusivos e ofertas verificadas. Grupo seleto com descontos de até 80%.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/2563eb/ffffff?text=Cheirinho+de+Beb%C3%AA">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <style>
+        /* CSS crítico inline para evitar render blocking */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Barra de urgência no topo */
+        .urgency-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            box-shadow: 0 2px 10px rgba(220, 38, 38, 0.2);
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 60px auto 0;
+            padding: 20px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.2);
+        }
+
+        .profile-name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        /* Contador de visualizações */
+        .live-counter {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .counter-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #dc2626;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: blink 1s infinite;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            animation: slideUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+        .section:nth-child(8) { animation-delay: 0.7s; }
+        .section:nth-child(9) { animation-delay: 0.8s; }
+
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #1f2937;
+        }
+
+        .description {
+            font-size: 17px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            text-align: center;
+            color: #4b5563;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-decoration: none;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 17px;
+            text-align: center;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .warning {
+            background: #fef2f2;
+            border-left: 4px solid #dc2626;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
+        }
+
+        .warning::before {
+            content: "🚨";
+            position: absolute;
+            top: -5px;
+            right: 15px;
+            font-size: 20px;
+            animation: bounce 1s infinite;
+        }
+
+        .benefits {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-item:hover {
+            background: #eff6ff;
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+        }
+
+        .benefit-icon {
+            margin-right: 12px;
+            font-size: 18px;
+            min-width: 24px;
+            color: #2563eb;
+        }
+
+        .benefit-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .feature-item:hover {
+            background: #eff6ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+        }
+
+        .feature-icon {
+            margin-right: 15px;
+            font-size: 20px;
+            min-width: 28px;
+            margin-top: 2px;
+            color: #2563eb;
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #1f2937;
+            font-size: 16px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .rules-list {
+            text-align: left;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 12px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid #2563eb;
+        }
+
+        .rule-icon {
+            margin-right: 12px;
+            font-size: 16px;
+            min-width: 20px;
+            margin-top: 2px;
+            color: #2563eb;
+        }
+
+        .commitments-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .commitment-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .commitment-item:hover {
+            background: #eff6ff;
+            transform: translateY(-1px);
+        }
+
+        .commitment-icon {
+            margin-right: 10px;
+            font-size: 16px;
+            color: #2563eb;
+        }
+
+        .commitment-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        /* Contador de vagas */
+        .spots-counter {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 25px 0;
+            font-weight: 600;
+            animation: glow 2s ease-in-out infinite alternate;
+            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+        }
+
+        .spots-number {
+            font-size: 28px;
+            display: block;
+            margin: 8px 0;
+            font-weight: 700;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.8; }
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.4; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-8px); }
+            60% { transform: translateY(-4px); }
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3); }
+            to { box-shadow: 0 8px 24px rgba(220, 38, 38, 0.5), 0 0 32px rgba(220, 38, 38, 0.2); }
+        }
+
+        /* Otimizações para mobile */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                margin-top: 55px;
+            }
+            
+            .profile-name {
+                font-size: 28px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+            
+            .cta-button {
+                padding: 18px 20px;
+                font-size: 16px;
+            }
+
+            .urgency-bar {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .commitments-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading otimizado */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.1s forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de urgência fixa -->
+    <div class="urgency-bar">
+        🔥 ÚLTIMAS <span id="urgency-hours">6</span> HORAS - VAGAS LIMITADAS! 🔥
+    </div>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-img">
+                👶
+            </div>
+            <h1 class="profile-name">Cheirinho de Bebê</h1>
+        </div>
+
+        <!-- Contador de visualizações AO VIVO -->
+        <div class="section loading">
+            <div class="live-counter">
+                <span class="counter-dot"></span>
+                🔴 <strong><span id="viewers">1.847</span> pessoas visualizando agora</strong>
+                <br>
+                <small style="color: #6b7280;">📊 <span id="total-views">28.394</span> visualizações hoje</small>
+            </div>
+        </div>
+
+        <!-- Main Offer -->
+        <div class="section loading">
+            <div class="title">💰 Economize até 80% em produtos para seu bebê!</div>
+            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+                🚀 QUERO COMEÇAR A ECONOMIZAR
+            </a>
+            <div class="description">✨ O que você vai receber <span class="highlight">GRATUITAMENTE</span>:</div>
+        </div>
+
+        <!-- Benefits -->
+        <div class="section loading">
+            <div class="benefits">
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Promoções diárias</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Cupons exclusivos deste grupo</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Alertas em primeira mão das melhores ofertas</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Descontos de até 80% em marcas famosas</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">✅</span>
+                    <span class="benefit-text">Grupo seleto com apenas ofertas verificadas</span>
+                </div>
+            </div>
+            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+                💰 QUERO ECONOMIZAR AGORA
+            </a>
+        </div>
+
+        <!-- Contador de vagas com escassez -->
+        <div class="section loading">
+            <div class="spots-counter">
+                ⚡ RESTAM APENAS
+                <span class="spots-number" id="spots-left">147</span>
+                VAGAS DISPONÍVEIS
+                <div style="font-size: 14px; margin-top: 8px; opacity: 0.9;">
+                    🕐 <span id="countdown">05:42:18</span> para encerrar
+                </div>
+            </div>
+        </div>
+
+        <!-- Exclusivity -->
+        <div class="section loading">
+            <div class="title">🔥 GRUPO EXCLUSIVO ESTÁ SENDO FORMADO!</div>
+            <div class="description">
+                🎯 Seja uma das primeiras a descobrir as melhores ofertas
+            </div>
+            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+                🚀 QUERO SER UMA DAS PRIMEIRAS
+            </a>
+        </div>
+
+        <!-- Differentials -->
+        <div class="section loading">
+            <div class="title">🌟 Por que este grupo é diferente?</div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">✨</span>
+                    <div class="feature-content">
+                        <div class="feature-title">Ofertas 100% verificadas</div>
+                        <div class="feature-desc">Só posto o que realmente vale a pena</div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✨</span>
+                    <div class="feature-content">
+                        <div class="feature-title">Sem enrolação</div>
+                        <div class="feature-desc">Direto ao ponto, só promoções reais</div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✨</span>
+                    <div class="feature-content">
+                        <div class="feature-title">Horário estratégico</div>
+                        <div class="feature-desc">Alertas nos melhores momentos para comprar</div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">✨</span>
+                    <div class="feature-content">
+                        <div class="feature-title">Foco total em bebês</div>
+                        <div class="feature-desc">Especializado apenas no que você precisa</div>
+                    </div>
+                </div>
+            </div>
+            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+                💝 FAZER PARTE DESTE GRUPO ESPECIAL
+            </a>
+        </div>
+
+        <!-- Urgency -->
+        <div class="section loading">
+            <div class="warning">
+                <div class="title" style="color: #dc2626;">⚠️ IMPORTANTE:</div>
+                <div class="description" style="color: #991b1b; text-align: left;">
+                    Vagas limitadas para manter a qualidade do grupo. Após atingirmos 1.000 membros, o grupo será fechado <strong>DEFINITIVAMENTE</strong>.
+                </div>
+            </div>
+            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+                ⚡ ENTRAR ANTES QUE FECHE
+            </a>
+        </div>
+
+        <!-- Rules -->
+        <div class="section loading">
+            <div class="title">⚠️ REGRAS E SEGURANÇA DO GRUPO:</div>
+            <div class="description" style="margin-bottom: 25px; color: #1f2937;">
+                🔐 <strong>IMPORTANTE - LEIA ANTES DE ENTRAR:</strong>
+            </div>
+            <div class="rules-list">
+                <div class="rule-item">
+                    <span class="rule-icon">✅</span>
+                    <span style="color: #1f2937;">Apenas administradores enviam mensagens no grupo</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✅</span>
+                    <span style="color: #1f2937;">NUNCA chamamos no privado ou ligamos pelo WhatsApp</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✅</span>
+                    <span style="color: #1f2937;">NUNCA fazemos ligações para integrantes</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✅</span>
+                    <span style="color: #1f2937;">Se alguém te contactar se passando pelo grupo, denuncie aos admins</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✅</span>
+                    <span style="color: #1f2937;">Pode convidar amigas e familiares se gostar das ofertas</span>
+                </div>
+                <div class="rule-item">
+                    <span class="rule-icon">✅</span>
+                    <span style="color: #1f2937;">Não atendemos ligações</span>
+                </div>
+            </div>
+            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+                🙏 ADOREI AS REGRAS, VOU ENTRAR AGORA
+            </a>
+        </div>
+
+        <!-- Commitments -->
+        <div class="section loading">
+            <div class="title">📋 COMPROMISSOS DO GRUPO:</div>
+            <div class="benefits">
+                <div class="commitments-grid">
+                    <div class="commitment-item">
+                        <span class="commitment-icon">🕐</span>
+                        <span class="commitment-text">Grupo ativo 24h</span>
+                    </div>
+                    <div class="commitment-item">
+                        <span class="commitment-icon">📵</span>
+                        <span class="commitment-text">Sem spam</span>
+                    </div>
+                    <div class="commitment-item">
+                        <span class="commitment-icon">🔒</span>
+                        <span class="commitment-text">100% gratuito</span>
+                    </div>
+                    <div class="commitment-item">
+                        <span class="commitment-icon">👥</span>
+                        <span class="commitment-text">Somente ofertas reais</span>
+                    </div>
+                    <div class="commitment-item">
+                        <span class="commitment-icon">👍</span>
+                        <span class="commitment-text">Somente sites confiáveis</span>
+                    </div>
+                </div>
+            </div>
+            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+                ✅ QUERO FAZER PARTE DO GRUPO AGORA
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Lazy loading das animações para melhor performance
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.loading');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.remove('loading');
+                }, index * 100);
+            });
+        });
+
+        // Preload do link de destino para melhor UX
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = 'https://whats.ly/v41fa';
+        document.head.appendChild(link);
+
+        // Contador de vagas dinâmico
+        let currentSpots = 147;
+        const spotsElement = document.getElementById('spots-left');
+        
+        function updateSpots() {
+            if (currentSpots > 50) {
+                currentSpots -= Math.floor(Math.random() * 3) + 1;
+                spotsElement.textContent = currentSpots;
+            }
+        }
+
+        // Contador de visualizações dinâmico
+        let currentViewers = 1847;
+        let totalViews = 28394;
+        const viewersElement = document.getElementById('viewers');
+        const totalViewsElement = document.getElementById('total-views');
+        
+        function updateViewers() {
+            // Varia entre +/-50 pessoas
+            const change = Math.floor(Math.random() * 100) - 50;
+            currentViewers = Math.max(1200, Math.min(2500, currentViewers + change));
+            viewersElement.textContent = currentViewers.toLocaleString();
+            
+            // Total views sempre crescendo
+            totalViews += Math.floor(Math.random() * 10) + 1;
+            totalViewsElement.textContent = totalViews.toLocaleString();
+        }
+
+        // Countdown timer
+        let timeLeft = 5 * 3600 + 42 * 60 + 18; // 5:42:18
+        const countdownElement = document.getElementById('countdown');
+        
+        function updateCountdown() {
+            if (timeLeft > 0) {
+                const hours = Math.floor(timeLeft / 3600);
+                const minutes = Math.floor((timeLeft % 3600) / 60);
+                const seconds = timeLeft % 60;
+                
+                countdownElement.textContent = 
+                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                timeLeft--;
+            }
+        }
+
+        // Urgency hours countdown
+        let urgencyHours = 6;
+        const urgencyElement = document.getElementById('urgency-hours');
+        
+        function updateUrgencyHours() {
+            if (urgencyHours > 1 && Math.random() < 0.1) {
+                urgencyHours--;
+                urgencyElement.textContent = urgencyHours;
+            }
+        }
+
+        // Executar atualizações
+        setInterval(updateSpots, 15000); // A cada 15 segundos
+        setInterval(updateViewers, 8000); // A cada 8 segundos
+        setInterval(updateCountdown, 1000); // A cada 1 segundo
+        setInterval(updateUrgencyHours, 300000); // A cada 5 minutos
+
+        // Iniciar contadores imediatamente
+        updateCountdown();
+    </script>
+</body>
+</html>
