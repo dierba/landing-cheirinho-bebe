@@ -139,6 +139,14 @@
             justify-content: center;
             font-size: 48px;
             box-shadow: 0 8px 32px rgba(37, 99, 235, 0.2);
+            overflow: hidden;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .profile-name {
@@ -728,7 +736,10 @@
         <!-- Profile Section -->
         <div class="profile-section">
             <div class="profile-img">
-                👶
+                <!-- Substitua o URL abaixo pela URL da sua imagem -->
+                <img src="https://raw.githubusercontent.com/dierba/landing-cheirinho-bebe/main/avatar.jpg" alt="Avatar Cheirinho de Bebê" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <!-- Fallback emoji caso a imagem não carregue -->
+                <span style="display: none;">👶</span>
             </div>
             <h1 class="profile-name">Cheirinho de Bebê</h1>
         </div>
@@ -931,7 +942,7 @@
         <div class="privacy-footer">
             <div class="privacy-content">
                 <p class="privacy-text">
-                    <strong>Política de Privacidade e LGPD:</strong> Ao clicar em qualquer botão desta página, você concorda com o uso de cookies e pixels de rastreamento para melhorar sua experiência. Seus dados são protegidos conforme a LGPD. 
+                    <strong>Política de Privacidade e LGPD:</strong> 
                     <span class="privacy-link" onclick="openPrivacyModal()">Leia nossa política completa aqui</span>.
                 </p>
                 <p class="contact-info">
