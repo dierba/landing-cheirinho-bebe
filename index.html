@@ -32,7 +32,7 @@
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=3369119716563761&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Facebook Pixel Code -->
     
@@ -462,6 +462,100 @@
             text-decoration: underline;
         }
 
+        /* Modal Privacy Policy Styles */
+        .privacy-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #6b7280;
+            padding: 5px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .modal-section {
+            margin-bottom: 25px;
+        }
+
+        .modal-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .modal-section p {
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+
+        .modal-section ul {
+            padding-left: 20px;
+            color: #4b5563;
+        }
+
+        .modal-section li {
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .privacy-link {
+            color: #2563eb;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .privacy-link:hover {
+            color: #1d4ed8;
+        }
+
         /* Animações */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -542,6 +636,86 @@
         <div class="cookie-content">
             <span>🍪 Este site utiliza cookies e pixels para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade.</span>
             <button onclick="hideCookieNotice()" class="cookie-accept">Aceitar</button>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="privacy-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Política de Privacidade e LGPD</h2>
+                <button class="close-modal" onclick="closePrivacyModal()">&times;</button>
+            </div>
+            
+            <div class="modal-section">
+                <h3>1. Informações Coletadas</h3>
+                <p>Coletamos as seguintes informações quando você visita nossa página:</p>
+                <ul>
+                    <li>Dados de navegação (IP, navegador, dispositivo)</li>
+                    <li>Cookies e pixels de rastreamento</li>
+                    <li>Interações com botões e links</li>
+                    <li>Tempo de permanência na página</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>2. Como Utilizamos Seus Dados</h3>
+                <p>Seus dados são utilizados para:</p>
+                <ul>
+                    <li>Melhorar a experiência de navegação</li>
+                    <li>Personalizar o conteúdo apresentado</li>
+                    <li>Analisar o desempenho da página</li>
+                    <li>Otimizar campanhas publicitárias</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>3. Cookies e Tecnologias de Rastreamento</h3>
+                <p>Utilizamos:</p>
+                <ul>
+                    <li><strong>Facebook Pixel:</strong> Para rastrear conversões e otimizar anúncios</li>
+                    <li><strong>Cookies de sessão:</strong> Para melhorar a funcionalidade</li>
+                    <li><strong>Pixels de rastreamento:</strong> Para análise de comportamento</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>4. Compartilhamento de Dados</h3>
+                <p>Seus dados podem ser compartilhados com:</p>
+                <ul>
+                    <li><strong>Facebook/Meta:</strong> Para otimização de campanhas publicitárias</li>
+                    <li><strong>WhatsApp:</strong> Quando você clica nos links de redirecionamento</li>
+                    <li><strong>Não compartilhamos</strong> informações pessoais com terceiros não autorizados</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>5. Seus Direitos (LGPD)</h3>
+                <p>Conforme a Lei Geral de Proteção de Dados, você tem direito a:</p>
+                <ul>
+                    <li>Confirmar a existência de tratamento de dados</li>
+                    <li>Acessar seus dados pessoais</li>
+                    <li>Corrigir dados incompletos ou incorretos</li>
+                    <li>Solicitar a exclusão de dados desnecessários</li>
+                    <li>Revogar o consentimento a qualquer momento</li>
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>6. Segurança</h3>
+                <p>Implementamos medidas de segurança para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>7. Contato</h3>
+                <p>Para exercer seus direitos ou esclarecer dúvidas sobre esta política, entre em contato através do email: <strong>privacidade@cheirinhobebe.com</strong></p>
+            </div>
+
+            <div class="modal-section">
+                <h3>8. Alterações</h3>
+                <p>Esta política pode ser atualizada ocasionalmente. Recomendamos revisá-la periodicamente.</p>
+                <p><strong>Última atualização:</strong> Setembro de 2025</p>
+            </div>
         </div>
     </div>
 
@@ -757,7 +931,8 @@
         <div class="privacy-footer">
             <div class="privacy-content">
                 <p class="privacy-text">
-                    <strong>Política de Privacidade e LGPD:</strong> Ao clicar em qualquer botão desta página, você concorda com o uso de cookies e pixels de rastreamento para melhorar sua experiência. Seus dados são protegidos conforme a LGPD. Não compartilhamos informações pessoais com terceiros.
+                    <strong>Política de Privacidade e LGPD:</strong> Ao clicar em qualquer botão desta página, você concorda com o uso de cookies e pixels de rastreamento para melhorar sua experiência. Seus dados são protegidos conforme a LGPD. 
+                    <span class="privacy-link" onclick="openPrivacyModal()">Leia nossa política completa aqui</span>.
                 </p>
                 <p class="contact-info">
                     Para dúvidas sobre privacidade: <a href="mailto:privacidade@cheirinhobebe.com">privacidade@cheirinhobebe.com</a>
@@ -788,6 +963,31 @@
             const notice = document.getElementById('cookie-notice');
             if (notice) {
                 notice.classList.remove('show');
+            }
+        }
+
+        // Privacy Modal functionality
+        function openPrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+        }
+
+        function closePrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('privacy-modal');
+            if (event.target == modal) {
+                closePrivacyModal();
             }
         }
 
