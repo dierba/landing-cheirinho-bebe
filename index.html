@@ -9,6 +9,9 @@
     <!-- Preload crítico -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="preconnect" href="https://www.facebook.com">
+    <link rel="preload" href="https://raw.githubusercontent.com/dierba/landing-cheirinho-bebe/main/avatar.jpg" as="image" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Meta tags para redes sociais -->
@@ -642,7 +645,7 @@
     <!-- Cookie Notice -->
     <div id="cookie-notice" class="cookie-notice">
         <div class="cookie-content">
-            <span>🍪 Este site utiliza cookies e pixels para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade.</span>
+            <span>🍪 Este site utiliza cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade.</span>
             <button onclick="hideCookieNotice()" class="cookie-accept">Aceitar</button>
         </div>
     </div>
@@ -733,16 +736,14 @@
     </div>
 
     <div class="container">
-        <!-- Profile Section -->
-        <div class="profile-section">
-            <div class="profile-img">
-                <!-- Substitua o URL abaixo pela URL da sua imagem -->
-                <img src="https://raw.githubusercontent.com/dierba/landing-cheirinho-bebe/main/avatar.jpg" alt="Avatar Cheirinho de Bebê" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <!-- Fallback emoji caso a imagem não carregue -->
-                <span style="display: none;">👶</span>
-            </div>
-            <h1 class="profile-name">Cheirinho de Bebê</h1>
-        </div>
+        <!-- Seção 1 – Headline + Benefício -->
+        <section class="hero">
+          <h1>👶 Descubra promoções exclusivas para mamães e bebês!</h1>
+          <p>Entre no grupo do WhatsApp e receba <strong>ofertas verificadas com até 80% de desconto</strong>, todos os dias.</p>
+          <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion('copy-inicial-secao', 'Lead')" rel="noopener" target="_blank">
+             🚀 QUERO ENTRAR NO GRUPO DE DESCONTOS
+          </a>
+        </section>
 
         <!-- Contador de visualizações AO VIVO -->
         <div class="section loading">
@@ -752,16 +753,7 @@
                 <br>
                 <small style="color: #6b7280;">📊 <span id="total-views">28.394</span> visualizações hoje</small>
             </div>
-        </div>
-
-        <!-- Main Offer -->
-        <div class="section loading">
-            <div class="title">💰 Economize até 80% em produtos para seu bebê!</div>
-            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
-                🚀 QUERO COMEÇAR A ECONOMIZAR
-            </a>
-            <div class="description">✨ O que você vai receber <span class="highlight">GRATUITAMENTE</span>:</div>
-        </div>
+        </div>        
 
         <!-- Benefits -->
         <div class="section loading">
@@ -787,7 +779,7 @@
                     <span class="benefit-text">Grupo seleto com apenas ofertas verificadas</span>
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion('beneficios-secao', 'Lead')" rel="noopener" target="_blank">
                 💰 QUERO ECONOMIZAR AGORA
             </a>
         </div>
@@ -802,7 +794,7 @@
                     🕐 <span id="countdown">05:42:18</span> para encerrar
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion('escassez-secao', 'Lead')" rel="noopener" target="_blank">
                 🚨 QUERO UMA DESSAS VAGAS
             </a>
         </div>
@@ -813,7 +805,7 @@
             <div class="description">
                 🎯 Seja uma das primeiras a descobrir as melhores ofertas
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion('exclusivo-secao', 'Lead')" rel="noopener" target="_blank">
                 🚀 QUERO SER UMA DAS PRIMEIRAS
             </a>
         </div>
@@ -851,7 +843,7 @@
                     </div>
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion('detalhes-grupo-secao', 'Lead')" rel="noopener" target="_blank">
                 💝 FAZER PARTE DESTE GRUPO ESPECIAL
             </a>
         </div>
@@ -864,7 +856,7 @@
                     Vagas limitadas para manter a qualidade do grupo. Após atingirmos 1.000 membros, o grupo será fechado <strong>DEFINITIVAMENTE</strong>.
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion('importante-secao', 'Lead')" rel="noopener" target="_blank">
                 ⚡ ENTRAR ANTES QUE FECHE
             </a>
         </div>
@@ -901,7 +893,7 @@
                     <span style="color: #1f2937;">Não atendemos ligações</span>
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion('regras-seguranca-secao', 'Lead')" rel="noopener" target="_blank">
                 🙏 ADOREI AS REGRAS, VOU ENTRAR AGORA
             </a>
         </div>
@@ -933,7 +925,7 @@
                     </div>
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion('compromissos-secao', 'Lead')" rel="noopener" target="_blank">
                 ✅ QUERO FAZER PARTE DO GRUPO AGORA
             </a>
         </div>
@@ -953,12 +945,55 @@
     </div>
 
     <script>
-        // Facebook Pixel tracking function
-        function trackConversion() {
+        // Facebook Pixel tracking function - VERSÃO CORRIGIDA
+        function trackConversion(buttonLocation = 'unknown', eventType = 'Lead') {
             if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead');
+                // Rastreia o evento principal
+                fbq('track', eventType, {
+                    button_location: buttonLocation,
+                    content_name: 'Cheirinho de Bebê - Grupo WhatsApp',
+                    content_category: 'Baby Products Deals'
+                });
+                
+                // Rastreia evento customizado para cada botão específico
+                fbq('trackCustom', 'ButtonClick', {
+                    button_id: buttonLocation,
+                    event_type: eventType,
+                    timestamp: new Date().toISOString()
+                });
+                
+                // Log para depuração (remover em produção)
+                console.log('Pixel fired:', eventType, 'Location:', buttonLocation);
             }
         }
+
+        // Rastreamento adicional para scroll profundo
+        let scrollTracked = false;
+        window.addEventListener('scroll', function() {
+            if (!scrollTracked && window.scrollY > document.body.scrollHeight * 0.75) {
+                scrollTracked = true;
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'DeepScroll', {
+                        scroll_depth: '75%',
+                        content_name: 'Cheirinho de Bebê Landing Page'
+                    });
+                }
+            }
+        });
+
+        // Rastreamento de tempo na página
+        let timeOnPageTracked = false;
+        setTimeout(() => {
+            if (!timeOnPageTracked) {
+                timeOnPageTracked = true;
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'TimeOnPage', {
+                        duration: '30_seconds',
+                        engagement: 'high'
+                    });
+                }
+            }
+        }, 30000); // 30 segundos
 
         // Cookie notice functionality
         function showCookieNotice() {
@@ -966,7 +1001,7 @@
             if (notice) {
                 setTimeout(() => {
                     notice.classList.add('show');
-                }, 2000); // Show after 2 seconds
+                }, 2000);
             }
         }
         
@@ -982,7 +1017,12 @@
             const modal = document.getElementById('privacy-modal');
             if (modal) {
                 modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                document.body.style.overflow = 'hidden';
+                
+                // Rastrear abertura da política de privacidade
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'PrivacyPolicyView');
+                }
             }
         }
 
@@ -990,7 +1030,7 @@
             const modal = document.getElementById('privacy-modal');
             if (modal) {
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Restore scrolling
+                document.body.style.overflow = 'auto';
             }
         }
 
