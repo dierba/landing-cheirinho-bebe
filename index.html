@@ -18,6 +18,24 @@
     <meta property="og:image" content="https://via.placeholder.com/1200x630/2563eb/ffffff?text=Cheirinho+de+Beb%C3%AA">
     <meta name="twitter:card" content="summary_large_image">
     
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3369119716563761'); // Substitua pelo seu Pixel ID
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
     <style>
         /* CSS crítico inline para evitar render blocking */
         * {
@@ -32,6 +50,53 @@
             color: #1f2937;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Cookie Notice Styles */
+        .cookie-notice {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 12px 20px;
+            z-index: 2000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .cookie-notice.show {
+            transform: translateY(0);
+        }
+        
+        .cookie-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 14px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .cookie-accept {
+            background: white;
+            color: #2563eb;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .cookie-accept:hover {
+            background: #f1f5f9;
+            transform: scale(1.05);
         }
 
         /* Barra de urgência no topo */
@@ -356,6 +421,47 @@
             font-weight: 700;
         }
 
+        /* Privacy Footer Styles */
+        .privacy-footer {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .privacy-text {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 10px;
+        }
+        
+        .contact-info a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
         /* Animações */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -416,6 +522,11 @@
             .commitments-grid {
                 grid-template-columns: 1fr;
             }
+
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
         /* Loading otimizado */
@@ -426,6 +537,14 @@
     </style>
 </head>
 <body>
+    <!-- Cookie Notice -->
+    <div id="cookie-notice" class="cookie-notice">
+        <div class="cookie-content">
+            <span>🍪 Este site utiliza cookies e pixels para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade.</span>
+            <button onclick="hideCookieNotice()" class="cookie-accept">Aceitar</button>
+        </div>
+    </div>
+
     <!-- Barra de urgência fixa -->
     <div class="urgency-bar">
         🔥 ÚLTIMAS <span id="urgency-hours">6</span> HORAS - VAGAS LIMITADAS! 🔥
@@ -453,7 +572,7 @@
         <!-- Main Offer -->
         <div class="section loading">
             <div class="title">💰 Economize até 80% em produtos para seu bebê!</div>
-            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
                 🚀 QUERO COMEÇAR A ECONOMIZAR
             </a>
             <div class="description">✨ O que você vai receber <span class="highlight">GRATUITAMENTE</span>:</div>
@@ -483,7 +602,7 @@
                     <span class="benefit-text">Grupo seleto com apenas ofertas verificadas</span>
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
                 💰 QUERO ECONOMIZAR AGORA
             </a>
         </div>
@@ -498,6 +617,9 @@
                     🕐 <span id="countdown">05:42:18</span> para encerrar
                 </div>
             </div>
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
+                🚨 QUERO UMA DESSAS VAGAS
+            </a>
         </div>
 
         <!-- Exclusivity -->
@@ -506,7 +628,7 @@
             <div class="description">
                 🎯 Seja uma das primeiras a descobrir as melhores ofertas
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
                 🚀 QUERO SER UMA DAS PRIMEIRAS
             </a>
         </div>
@@ -544,7 +666,7 @@
                     </div>
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
                 💝 FAZER PARTE DESTE GRUPO ESPECIAL
             </a>
         </div>
@@ -557,7 +679,7 @@
                     Vagas limitadas para manter a qualidade do grupo. Após atingirmos 1.000 membros, o grupo será fechado <strong>DEFINITIVAMENTE</strong>.
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
                 ⚡ ENTRAR ANTES QUE FECHE
             </a>
         </div>
@@ -594,7 +716,7 @@
                     <span style="color: #1f2937;">Não atendemos ligações</span>
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
                 🙏 ADOREI AS REGRAS, VOU ENTRAR AGORA
             </a>
         </div>
@@ -626,13 +748,49 @@
                     </div>
                 </div>
             </div>
-            <a href="https://whats.ly/v41fa" class="cta-button" rel="noopener" target="_blank">
+            <a href="https://whats.ly/v41fa" class="cta-button" onclick="trackConversion()" rel="noopener" target="_blank">
                 ✅ QUERO FAZER PARTE DO GRUPO AGORA
             </a>
+        </div>
+
+        <!-- Footer com Política de Privacidade -->
+        <div class="privacy-footer">
+            <div class="privacy-content">
+                <p class="privacy-text">
+                    <strong>Política de Privacidade e LGPD:</strong> Ao clicar em qualquer botão desta página, você concorda com o uso de cookies e pixels de rastreamento para melhorar sua experiência. Seus dados são protegidos conforme a LGPD. Não compartilhamos informações pessoais com terceiros.
+                </p>
+                <p class="contact-info">
+                    Para dúvidas sobre privacidade: <a href="mailto:privacidade@cheirinhobebe.com">privacidade@cheirinhobebe.com</a>
+                </p>
+            </div>
         </div>
     </div>
 
     <script>
+        // Facebook Pixel tracking function
+        function trackConversion() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+        }
+
+        // Cookie notice functionality
+        function showCookieNotice() {
+            const notice = document.getElementById('cookie-notice');
+            if (notice) {
+                setTimeout(() => {
+                    notice.classList.add('show');
+                }, 2000); // Show after 2 seconds
+            }
+        }
+        
+        function hideCookieNotice() {
+            const notice = document.getElementById('cookie-notice');
+            if (notice) {
+                notice.classList.remove('show');
+            }
+        }
+
         // Lazy loading das animações para melhor performance
         document.addEventListener('DOMContentLoaded', function() {
             const elements = document.querySelectorAll('.loading');
@@ -641,6 +799,9 @@
                     el.classList.remove('loading');
                 }, index * 100);
             });
+            
+            // Initialize cookie notice
+            showCookieNotice();
         });
 
         // Preload do link de destino para melhor UX
